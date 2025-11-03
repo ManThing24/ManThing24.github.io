@@ -15,43 +15,64 @@ body {
   box-sizing: border-box;
 }
 
-/* Container for results - grid layout */
+/* Container for search results */
 .results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 15px;
   margin-top: 20px;
 }
 
-/* Individual card styling */
+/* Individual card */
 .card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* Hover effect for cards */
+/* Card hover */
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
 
-/* Card headings (main info) */
+/* Main heading (Part Number) */
 .card h3 {
-  margin: 0 0 5px 0;
   font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Secondary info */
+.card p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+/* Strong labels inside p tags */
+.card p strong {
   color: #333;
 }
 
-/* Card text (secondary info) */
-.card p {
-  margin: 2px 0;
-  font-size: 14px;
-  color: #555;
+/* Optional: highlight matched search text */
+.highlight {
+  background-color: #fff176; /* subtle yellow */
+  padding: 0 2px;
+  border-radius: 2px;
 }
 
-/* Highlight matching search text */
-.highlight {
-  background-color: yellow;
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
 }
+
