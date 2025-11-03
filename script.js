@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const search = document.getElementById("search");
-  const results = document.getElementById("results");
+  const results = document.getElementById("card");
 
   search.addEventListener("input", () => {
     const query = search.value.trim().toLowerCase();
