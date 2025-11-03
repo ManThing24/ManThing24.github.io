@@ -1,76 +1,73 @@
+/* General page setup */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0d0f13;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    background-color: #0f1117; /* Dark background */
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-  padding: 60px 20px 40px;
-}
-
+/* Logo */
 .logo {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
+    display: block;
+    margin: 50px auto 20px;
+    width: 80px; /* Adjust as needed */
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
 }
 
+/* Heading */
 h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-#search {
-  width: 320px;
-  padding: 10px;
-  border: 1px solid #999;
-  background: transparent;
-  color: white;
-  border-radius: 3px;
-  font-size: 1rem;
+/* Input box */
+input[type="text"], select {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    background-color: #0f1117;
+    color: #fff;
+    outline: none;
+    margin-bottom: 10px;
 }
 
-h2 {
-  margin-top: 30px;
-  color: #ccc;
+input[type="text"]::placeholder {
+    color: #aaa;
 }
 
+/* Results section */
 .results {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 40px auto;
-  max-width: 900px;
-  flex-wrap: wrap;
+    margin: 20px auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Four columns */
+    gap: 20px;
+    text-align: left;
+    font-size: 12px;
 }
 
-.result-card {
-  text-align: left;
-  background: #181b20;
-  padding: 20px;
-  border-radius: 8px;
-  width: 200px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.results div {
+    line-height: 1.5;
 }
 
-.result-card h3 {
-  border-bottom: 1px solid #444;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  color: #0ff08c;
+/* Column headings */
+.results div strong {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin: 4px 0;
-  font-size: 0.9rem;
+/* Optional: hover effect for input */
+input[type="text"]:focus {
+    border-color: #00aaff;
 }
