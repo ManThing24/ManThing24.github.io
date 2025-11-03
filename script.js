@@ -24,24 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const match = wheelData.find(w =>
-      w.wheel_part_number && w.wheel_part_number.toLowerCase().includes(query)
+    const matches = wheelData.filter(w =>
+      Object.values(w).some(val =>
+        val && val.toLowerCase().includes(query)
+      )
     );
 
-    if (match) {
-      const fits = (match.fits_trucks || "").split(";").map(t => t.trim()).filter(Boolean);
-      const notFits = (match.not_fit_trucks || "").split(";").map(t => t.trim()).filter(Boolean);
-
-      results.innerHTML = `
-        <h2>Results for ${match.wheel_part_number}</h2>
-        <p><strong>Fits:</strong></p>
-        <ul>${fits.map(t => `<li>${t}</li>`).join("")}</ul>
-        <p><strong>Does not fit:</strong></p>
-        <ul>${notFits.map(t => `<li>${t}</li>`).join("")}</ul>
-        <p><strong>Wheel Nuts:</strong> ${match.wheel_nuts}</p>
-      `;
-    } else {
+    if (matches.length === 0) {
       results.innerHTML = `<p>No results found.</p>`;
+      return;
     }
+
+    results.innerHTML = matches.map(match => `
+      <div class="result-card">
+        <h3>${match.wheel_part_number}</h3>
+        <p><strong>Wheel Specs:</strong><br>${match.wheel_specs || "—"}</p>
+        <p><strong>Fits:</strong><br>${match.fits_trucks || "—"}</p>
+        <p><strong>Does Not Fit:</strong><br>${match.not_fit_trucks || "—"}</p>
+        <p><strong>Wheel Nut:</strong><br>${match.wheel_nuts || "—"}</p>
+      </div>
+    `).join("");
   });
 });
