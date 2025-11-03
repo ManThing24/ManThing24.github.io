@@ -1,78 +1,124 @@
-/* General body styling */
+/* === PAGE LAYOUT === */
 body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  padding: 20px;
-}
-
-/* Search input styling */
-.search input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Container for search results */
-.results {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-/* Individual card */
-.card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 18px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #1a1a1a; /* dark background like your photo */
+  color: #fff; /* default text color white */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Card hover */
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+/* === HEADER === */
+header {
+  text-align: center;
+  margin: 40px 0 30px 0;
 }
 
-/* Main heading (Part Number) */
-.card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #222;
+header img.logo {
+  width: 120px;
   margin-bottom: 10px;
 }
 
-/* Secondary info */
+header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+header input[type="text"] {
+  width: 320px;
+  max-width: 90%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+/* === RESULTS CONTAINER === */
+main#results {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === CARD STYLING === */
+.card {
+  width: 100%;
+  background-color: #2a2a2a; /* slightly lighter than page */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+}
+
+/* Card headings */
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+/* Card sections */
 .card p {
   font-size: 14px;
-  color: #555;
-  margin: 4px 0;
-  line-height: 1.4;
+  color: #ddd;
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
-/* Strong labels inside p tags */
+/* Bold labels inside card */
 .card p strong {
-  color: #333;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
 }
 
-/* Optional: highlight matched search text */
+/* Optional: highlight matched search term */
 .highlight {
-  background-color: #fff176; /* subtle yellow */
+  background-color: #fff176;
+  color: #000;
   padding: 0 2px;
   border-radius: 2px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .results {
-    grid-template-columns: 1fr;
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 26px;
+  }
+
+  header input[type="text"] {
+    width: 90%;
+  }
+
+  .card {
+    padding: 15px;
   }
 }
 
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 22px;
+  }
+  header input[type="text"] {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
