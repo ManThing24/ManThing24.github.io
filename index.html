@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wheel Fitment Lookup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wheel Fitment Lookup</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Wheel Fitment Lookup</h1>
-  <input type="text" id="search" placeholder="Enter wheel part number (e.g. WC123)">
-  <div id="results"></div>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>WHEEL FITMENT LOOKUP</h1>
+    <input type="text" id="search" placeholder="Enter wheel part number or truck name...">
+  </header>
+
+  <main>
+    <h2>Results</h2>
+    <div id="results" class="results"></div>
+  </main>
 
   <script src="libs/papaparse.min.js"></script>
   <script src="script.js"></script>
