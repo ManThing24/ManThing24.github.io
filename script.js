@@ -4,27 +4,44 @@ document.addEventListener("DOMContentLoaded", () => {
   Papa.parse("data/wheels.csv", {
     download: true,
     header: true,
+    skipEmptyLines: true,
     complete: (results) => {
       wheelData = results.data;
+      console.log("✅ CSV Loaded:", wheelData);
     },
+    error: (err) => {
+      console.error("❌ CSV load error:", err);
+    }
   });
 
-  const searchInput = document.getElementById("search");
-  const resultsDiv = document.getElementById("results");
+  const search = document.getElementById("search");
+  const results = document.getElementById("results");
 
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim().toLowerCase();
-    const match = wheelData.find(w => w.wheel_part_number.toLowerCase() === query);
+  search.addEventListener("input", () => {
+    const query = search.value.trim().toLowerCase();
+    if (!query) {
+      results.innerHTML = "";
+      return;
+    }
+
+    const match = wheelData.find(w =>
+      w.wheel_part_number && w.wheel_part_number.toLowerCase().includes(query)
+    );
 
     if (match) {
-      resultsDiv.innerHTML = `
+      const fits = (match.fits_trucks || "").split(";").map(t => t.trim()).filter(Boolean);
+      const notFits = (match.not_fit_trucks || "").split(";").map(t => t.trim()).filter(Boolean);
+
+      results.innerHTML = `
         <h2>Results for ${match.wheel_part_number}</h2>
-        <p><strong>Fits:</strong> ${match.fits_trucks}</p>
-        <p><strong>Does not fit:</strong> ${match.not_fit_trucks}</p>
+        <p><strong>Fits:</strong></p>
+        <ul>${fits.map(t => `<li>${t}</li>`).join("")}</ul>
+        <p><strong>Does not fit:</strong></p>
+        <ul>${notFits.map(t => `<li>${t}</li>`).join("")}</ul>
         <p><strong>Wheel Nuts:</strong> ${match.wheel_nuts}</p>
       `;
     } else {
-      resultsDiv.innerHTML = query ? "<p>No results found.</p>" : "";
+      results.innerHTML = `<p>No results found.</p>`;
     }
   });
 });
