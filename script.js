@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     results.innerHTML = matches.map(match => `
-      <div class="result-card">
+      <div class="card">
         <h3>${match.wheel_part_number}</h3>
         <p><strong>Wheel Specs:</strong><br>${match.wheel_specs || "—"}</p>
         <p><strong>Fits:</strong><br>${match.fits_trucks || "—"}</p>
