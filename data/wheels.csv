@@ -1,3 +1,3 @@
 wheel_part_number,fits_trucks,not_fit_trucks,wheel_nuts
-WC123,"Isuzu NPR; Hino 300","Fuso Canter; Iveco Daily","M22x1.5 Cone Seat"
-WC456,"Fuso Canter; Mitsubishi Rosa","Hino 300","M20x1.5 Flat Seat"
+TEST1,Isuzu NPR; Hino 300,Fuso Canter; Iveco Daily,M22x1.5 Cone Seat
+TEST2,Fuso Canter; Mitsubishi Rosa,Hino 300,M20x1.5 Flat Seat
