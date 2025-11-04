@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #1a1a1a; /* dark background like your photo */
+  background-color: #0d1117; /* dark background like your photo */
   color: #fff; /* default text color white */
   display: flex;
   flex-direction: column;
@@ -24,22 +24,26 @@ header img.logo {
 
 header h1 {
   font-size: 32px;
-  margin: 10px 0;
+  font-weight: bold;
+  margin: 10px;
   color: #fff;
   letter-spacing: 1px;
 }
 
 header input[type="text"] {
-  width: 320px;
+  width: 500px;
   max-width: 90%;
   padding: 12px 15px;
   font-size: 16px;
-  border-radius: 8px;
-  border: none;
+  border: solid 1px;
+  border-color: white;
   outline: none;
   margin-top: 15px;
-  background-color: #2a2a2a;
-  color: #fff;
+  background-color: #0d1117;
+}
+
+input::placeholder {
+  color: white;
 }
 
 /* === RESULTS CONTAINER === */
@@ -54,10 +58,8 @@ main#results {
 /* === CARD STYLING === */
 .card {
   width: 100%;
-  background-color: #2a2a2a; /* slightly lighter than page */
   border-radius: 12px;
   padding: 20px;
-  margin-bottom: 20px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -69,17 +71,32 @@ main#results {
 
 /* Card headings */
 .card h3 {
+padding: 20px 20px 20px 20px;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 12px;
-  color: #fff;
+background-color: white; /* slightly lighter than page */
+  color: black;
+  margin: 0px 0px 20px 0px
+}
+
+.grid-table {
+position: relative; 
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+column-gap: 20px;
+}
+
+.sepline {
+width:20px;
+padding: 2px;
+background-color: green;
 }
 
 /* Card sections */
 .card p {
   font-size: 14px;
   color: #ddd;
-  margin: 6px 0;
+margin: 0;
   line-height: 1.5;
 }
 
@@ -87,7 +104,7 @@ main#results {
 .card p strong {
   color: #fff;
   display: block;
-  margin-bottom: 4px;
+margin: 0;
 }
 
 /* Optional: highlight matched search term */
