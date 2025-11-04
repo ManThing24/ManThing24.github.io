@@ -3,19 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wheel Fitment Lookup</title>
+<title>MTW Lookup</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <img src="logo.png" alt="Logo" class="logo">
-    <h1>WHEEL FITMENT LOOKUP</h1>
-    <input type="text" id="search" placeholder="Enter wheel part number (e.g. 550260P)">
+
+    <div class="tabs">
+      <button class="tab" id="wheelTab">Wheel Fitment Lookup</button>
+      <button class="tab" id="chassisTab">Chassis Master List</button>
+    </div>
   </header>
 
-  <main id="results">
-    <h2>Results</h2>
-  </main>
+  <section id="wheelSection" class="lookup-section hidden">
+    <input type="text" id="wheelSearch" placeholder="Search wheels...">
+    <main id="wheelResults"><h2>Results</h2></main>
+  </section>
+
+  <section id="chassisSection" class="lookup-section hidden">
+    <input type="text" id="chassisSearch" placeholder="Search chassis...">
+    <main id="chassisResults"><h2>Results</h2></main>
+  </section>
 
   <script src="libs/papaparse.min.js"></script>
   <script src="script.js"></script>

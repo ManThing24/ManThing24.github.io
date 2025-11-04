@@ -30,21 +30,55 @@ header h1 {
   letter-spacing: 1px;
 }
 
-header input[type="text"] {
-  width: 500px;
+/* === TABS === */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background-color: #00b37d;
+  border-color: #00b37d;
+  color: #000;
+}
+
+/* === SECTIONS === */
+.lookup-section {
+  width: 90%;
+  max-width: 1500px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === SEARCH === */
+.lookup-section input[type="text"] {
+  width: 380px;
   max-width: 90%;
   padding: 12px 15px;
+  margin: 25px 0;
   font-size: 16px;
-  border: solid 1px;
-  border-color: white;
-  outline: none;
-  margin-top: 15px;
   background-color: #0d1117;
-  color: white;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 input::placeholder {
-  color: white;
+  color: #aaa;
 }
 
 /* === RESULTS CONTAINER === */
@@ -59,10 +93,21 @@ main#results {
 /* === CARD STYLING === */
 .card {
   width: 100%;
-  border-radius: 12px;
   padding: 20px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 50px;
+}
+
+/* === FITS LIST === */
+.fits-list {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.fits-list .fit-item {
+  line-height: 1.4;
+  margin-bottom: 3px;
 }
 
 .card:hover {
@@ -75,37 +120,44 @@ main#results {
 padding: 20px 20px 20px 20px;
   font-size: 20px;
   font-weight: 700;
-background-color: white; /* slightly lighter than page */
+  background-color: white; /* slightly lighter than page */
   color: black;
-  margin: 0px 0px 20px 0px
+  margin: 0px 0px 20px 0px;
+  text-align: left;
 }
 
 .grid-table {
 position: relative; 
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(5, 1fr);
 column-gap: 20px;
+align-items: start; /* 👈 this ensures top alignment */
+text-align: left;
 }
 
 .sepline {
+margin-top: 5px;
 width:20px;
 padding: 2px;
 background-color: green;
+}
+
+.sepline.red {
+background-color: red;
 }
 
 /* Card sections */
 .card p {
   font-size: 14px;
   color: #ddd;
-margin: 0;
-  line-height: 1.5;
+  margin: 0;
 }
 
 /* Bold labels inside card */
 .card p strong {
   color: #fff;
   display: block;
-margin: 0;
+  margin: 0;
 }
 
 /* Optional: highlight matched search term */
