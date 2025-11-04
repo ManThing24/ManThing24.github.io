@@ -36,26 +36,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     results.innerHTML = matches.map(match => `
-      <div class="card">
         <h3>${match.wheel_part_number}</h3>
         <div class="grid-table">
-<div><p><strong>Wheel Specs:</strong>
-<div class="sepline"></div>
-<br>${match.wheel_specs || "—"}</p></div>
-
-<div><p><strong>Fits:</strong>
-<div class="sepline"></div>
-<br>${match.fits_trucks || "—"}</p></div>
-
-<div><p><strong>Does Not Fit:</strong>
-<div class="sepline"></div>
-<br>${match.not_fit_trucks || "—"}</p></div>
-
-<div><p><strong>Wheel Nut:</strong>
-<div class="sepline"></div>
-<br>${match.wheel_nuts || "—"}</p></div>
+          <div><p><strong>Wheel Specs:</strong>
+          <div class="sepline"></div>
+          <br>${match.wheel_specs || "—"}</p></div>
+          
+          <div><p><strong>Fits:</strong>
+          <div class="sepline"></div>
+          <br>${match.fits_trucks || "—"}</p></div>
+          
+          <div><p><strong>Does Not Fit:</strong>
+          <div class="sepline"></div>
+          <br>${match.not_fit_trucks || "—"}</p></div>
+          
+          <div><p><strong>Wheel Nut:</strong>
+          <div class="sepline"></div>
+          <br>${match.wheel_nuts || "—"}</p></div>
         </div>
-      </div>
     `).join("");
   });
 });
