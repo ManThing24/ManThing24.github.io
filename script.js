@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let wheelData = [];
 
-  // Load CSV
   Papa.parse("data/wheels.csv", {
     download: true,
     header: true,
@@ -16,18 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const search = document.getElementById("search");
-  const results = document.getElementById("results"); // your <main id="results">
+  const results = document.getElementById("results"); // main container
 
   search.addEventListener("input", () => {
     const query = search.value.trim().toLowerCase();
 
-    // Remove any previous cards, keep the <h2> heading
+    // Remove all existing cards before adding new ones
     results.querySelectorAll(".card").forEach(c => c.remove());
 
     if (!query) return; // nothing typed → no cards
 
-    const matches = wheelData.filter(wheel =>
-      Object.values(wheel).some(val =>
+    const matches = wheelData.filter(w =>
+      Object.values(w).some(val =>
         val && val.toLowerCase().includes(query)
       )
     );
